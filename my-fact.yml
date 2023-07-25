@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-fact-pod
+  labels:
+    app: my-factapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-factapp
+  template:
+    metadata:
+      labels:
+        app: my-factapp
+    spec:
+      containers:
+        - name: myfactimgcontainer
+          image: myfactorialimg
+          ports:
+            - containerPort: 80
